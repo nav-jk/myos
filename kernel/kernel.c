@@ -36,26 +36,68 @@ void main(void)
         20, 5, LIGHT_CYAN
     );
 
-    print_at_color("[ OK ]", 5, 8, LIGHT_GREEN);
-    print_at_color(" BIOS initialization complete", 12, 8, LIGHT_GRAY);
+    print_at_color(
+        "[ OK ]", 5, 8, LIGHT_GREEN
+    );
 
-    print_at_color("[ OK ]", 5, 9, LIGHT_GREEN);
-    print_at_color(" Loading kernel into memory", 12, 9, LIGHT_GRAY);
+    print_at_color(
+        " BIOS initialization complete",
+        12, 8, LIGHT_GRAY
+    );
 
-    print_at_color("[ OK ]", 5, 10, LIGHT_GREEN);
-    print_at_color(" GDT initialized", 12, 10, LIGHT_GRAY);
+    print_at_color(
+        "[ OK ]", 5, 9, LIGHT_GREEN
+    );
 
-    print_at_color("[ OK ]", 5, 11, LIGHT_GREEN);
-    print_at_color(" Entered protected mode", 12, 11, LIGHT_GRAY);
+    print_at_color(
+        " Loading kernel into memory",
+        12, 9, LIGHT_GRAY
+    );
 
-    print_at_color("[ OK ]", 5, 12, LIGHT_GREEN);
-    print_at_color(" VGA driver initialized", 12, 12, LIGHT_GRAY);
+    print_at_color(
+        "[ OK ]", 5, 10, LIGHT_GREEN
+    );
 
-    print_at_color("[ OK ]", 5, 13, LIGHT_GREEN);
-    print_at_color(" Screen driver loaded", 12, 13, LIGHT_GRAY);
+    print_at_color(
+        " GDT initialized",
+        12, 10, LIGHT_GRAY
+    );
 
-    print_at_color("[ OK ]", 5, 14, LIGHT_GREEN);
-    print_at_color(" Kernel execution started", 12, 14, LIGHT_GRAY);
+    print_at_color(
+        "[ OK ]", 5, 11, LIGHT_GREEN
+    );
+
+    print_at_color(
+        " Entered protected mode",
+        12, 11, LIGHT_GRAY
+    );
+
+    print_at_color(
+        "[ OK ]", 5, 12, LIGHT_GREEN
+    );
+
+    print_at_color(
+        " VGA driver initialized",
+        12, 12, LIGHT_GRAY
+    );
+
+    print_at_color(
+        "[ OK ]", 5, 13, LIGHT_GREEN
+    );
+
+    print_at_color(
+        " Screen driver loaded",
+        12, 13, LIGHT_GRAY
+    );
+
+    print_at_color(
+        "[ OK ]", 5, 14, LIGHT_GREEN
+    );
+
+    print_at_color(
+        " Kernel execution started",
+        12, 14, LIGHT_GRAY
+    );
 
     print_at_color(
         "CPU: x86",

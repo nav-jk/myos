@@ -1,20 +1,83 @@
-void main() {
-    char *video_memory = (char *) 0xb8000;
-    // Write 'X' further into the screen (row 2, column 5) instead of (0,0)
-    // so it's not hidden behind window chrome.
-    // int offset = 2 * (2 * 80 + 5); // row=2, col=5
-    int offset = 0;
-    // video_memory[offset] = 'X';
+#include "../drivers/screen.h"
 
-    // char* second = (char*) 0xb8010;
-    // second[offset+2] = 'O';
+#define BLACK          0x00
+#define BLUE           0x01
+#define GREEN          0x02
+#define CYAN           0x03
+#define RED            0x04
+#define MAGENTA        0x05
+#define BROWN          0x06
+#define LIGHT_GRAY     0x07
+#define DARK_GRAY      0x08
+#define LIGHT_BLUE     0x09
+#define LIGHT_GREEN    0x0A
+#define LIGHT_CYAN     0x0B
+#define LIGHT_RED      0x0C
+#define LIGHT_MAGENTA  0x0D
+#define YELLOW         0x0E
+#define WHITE          0x0F
 
-    char* message = "HELLO WORLD!\0";
-    char i = 0;
-    while(*(message + i) != '\0'){
-        video_memory[offset+2*i] = *(message + i);
-        i++;
+void main(void)
+{
+    clear_screen();
+
+    print_at_color(
+        "========================================",
+        20, 3, LIGHT_CYAN
+    );
+
+    print_at_color(
+        "          myos KERNEL BOOT",
+        20, 4, WHITE
+    );
+
+    print_at_color(
+        "========================================",
+        20, 5, LIGHT_CYAN
+    );
+
+    print_at_color("[ OK ]", 5, 8, LIGHT_GREEN);
+    print_at_color(" BIOS initialization complete", 12, 8, LIGHT_GRAY);
+
+    print_at_color("[ OK ]", 5, 9, LIGHT_GREEN);
+    print_at_color(" Loading kernel into memory", 12, 9, LIGHT_GRAY);
+
+    print_at_color("[ OK ]", 5, 10, LIGHT_GREEN);
+    print_at_color(" GDT initialized", 12, 10, LIGHT_GRAY);
+
+    print_at_color("[ OK ]", 5, 11, LIGHT_GREEN);
+    print_at_color(" Entered protected mode", 12, 11, LIGHT_GRAY);
+
+    print_at_color("[ OK ]", 5, 12, LIGHT_GREEN);
+    print_at_color(" VGA driver initialized", 12, 12, LIGHT_GRAY);
+
+    print_at_color("[ OK ]", 5, 13, LIGHT_GREEN);
+    print_at_color(" Screen driver loaded", 12, 13, LIGHT_GRAY);
+
+    print_at_color("[ OK ]", 5, 14, LIGHT_GREEN);
+    print_at_color(" Kernel execution started", 12, 14, LIGHT_GRAY);
+
+    print_at_color(
+        "CPU: x86",
+        5, 17, LIGHT_BLUE
+    );
+
+    print_at_color(
+        "MEM: 640 KB",
+        5, 18, YELLOW
+    );
+
+    print_at_color(
+        "VID: VGA TEXT 80x25",
+        5, 19, LIGHT_MAGENTA
+    );
+
+    print_at_color(
+        ">>> SYSTEM READY <<<",
+        27, 22, LIGHT_GREEN
+    );
+
+    while (1)
+    {
     }
 }
-
-

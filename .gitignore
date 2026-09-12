@@ -1,0 +1,24 @@
+# Build artifacts
+*.bin
+*.o
+*.dis
+*.elf
+*.img
+*.iso
+os-image
+kernel.bin
+
+# QEMU/Bochs logs and state
+qemu.log
+bochsout.txt
+*.log
+
+# Bochs config (machine-specific, usually regenerated)
+bochsrc.bxrc
+
+# Editor/OS cruft
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db

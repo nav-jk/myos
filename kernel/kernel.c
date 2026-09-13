@@ -1,4 +1,5 @@
 #include "../drivers/screen.h"
+#include "../drivers/keyboard.h"
 
 #define BLACK          0x00
 #define BLUE           0x01
@@ -19,6 +20,8 @@
 
 void main(void)
 {
+    char c;
+
     clear_screen();
 
     print_at_color(
@@ -37,7 +40,8 @@ void main(void)
     );
 
     print_at_color(
-        "[ OK ]", 5, 8, LIGHT_GREEN
+        "[ OK ]",
+        5, 8, LIGHT_GREEN
     );
 
     print_at_color(
@@ -46,7 +50,8 @@ void main(void)
     );
 
     print_at_color(
-        "[ OK ]", 5, 9, LIGHT_GREEN
+        "[ OK ]",
+        5, 9, LIGHT_GREEN
     );
 
     print_at_color(
@@ -55,7 +60,8 @@ void main(void)
     );
 
     print_at_color(
-        "[ OK ]", 5, 10, LIGHT_GREEN
+        "[ OK ]",
+        5, 10, LIGHT_GREEN
     );
 
     print_at_color(
@@ -64,7 +70,8 @@ void main(void)
     );
 
     print_at_color(
-        "[ OK ]", 5, 11, LIGHT_GREEN
+        "[ OK ]",
+        5, 11, LIGHT_GREEN
     );
 
     print_at_color(
@@ -73,7 +80,8 @@ void main(void)
     );
 
     print_at_color(
-        "[ OK ]", 5, 12, LIGHT_GREEN
+        "[ OK ]",
+        5, 12, LIGHT_GREEN
     );
 
     print_at_color(
@@ -82,7 +90,8 @@ void main(void)
     );
 
     print_at_color(
-        "[ OK ]", 5, 13, LIGHT_GREEN
+        "[ OK ]",
+        5, 13, LIGHT_GREEN
     );
 
     print_at_color(
@@ -91,11 +100,12 @@ void main(void)
     );
 
     print_at_color(
-        "[ OK ]", 5, 14, LIGHT_GREEN
+        "[ OK ]",
+        5, 14, LIGHT_GREEN
     );
 
     print_at_color(
-        " Kernel execution started",
+        " Keyboard driver initialized",
         12, 14, LIGHT_GRAY
     );
 
@@ -115,11 +125,28 @@ void main(void)
     );
 
     print_at_color(
-        ">>> SYSTEM READY <<<",
-        27, 22, LIGHT_GREEN
+        "Keyboard ready.",
+        5, 21, LIGHT_GREEN
     );
+
+    print_at_color(
+        "> ",
+        5, 22, WHITE
+    );
+
+    keyboard_init();
 
     while (1)
     {
+        c = keyboard_getchar();
+
+        if (c == '\b')
+        {
+            print_char('\b', -1, -1, WHITE);
+        }
+        else
+        {
+            print_char(c, -1, -1, WHITE);
+        }
     }
 }
